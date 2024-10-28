@@ -36,6 +36,12 @@ jobs:
 
     - name: Create new main vs develop if merge succeeded
       if: ${{ success() }}
-      run: gh pr create -B develop -H main --title '[Do Not Merge] `main` vs `develop`' --body '### Placeholder'
+      run: |
+        git fetch --unshallow
+        git checkout develop
+        git pull
+        git commit -m "Placeholder for MvD" --allow-empty
+        git push
+        gh pr create -B develop -H main --title '[Do Not Merge] `main` vs `develop`' --body '### Placeholder'
       env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
