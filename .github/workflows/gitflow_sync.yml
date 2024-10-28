@@ -13,6 +13,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Set email and name for Git config
+      run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "actions@github.com"
+
     - name: Attempt to merge main into develop
       run: |
         git fetch --unshallow
