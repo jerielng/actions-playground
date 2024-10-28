@@ -25,7 +25,7 @@ jobs:
         git pull
         git merge --no-ff main
         git push
-        gh pr create -B develop -H main --title '[Do Not Merge] `main` vs `develop`'
+        gh pr create -B develop -H main --title '[Do Not Merge] `main` vs `develop`' --body '### Placeholder'
       env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
