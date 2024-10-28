@@ -15,10 +15,10 @@ jobs:
 
     - name: Attempt to merge main into develop
       run: |
-        git pull origin develop --ff-only
-        git pull origin main --ff-only
+        git fetch --unshallow
         git checkout develop
-        git merge main
+        git pull
+        git merge --no-ff main
         git push
 
     - name: Create pull request if merge failed
