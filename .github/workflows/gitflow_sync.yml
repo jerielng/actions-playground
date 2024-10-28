@@ -37,7 +37,6 @@ jobs:
     - name: Create new main vs develop if merge succeeded
       if: ${{ success() }}
       run: |
-        git fetch --unshallow
         git checkout develop
         git pull
         git commit -m "Placeholder for MvD" --allow-empty
