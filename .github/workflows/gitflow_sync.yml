@@ -15,8 +15,8 @@ jobs:
 
     - name: Attempt to merge main into develop
       run: |
-        git pull origin develop
-        git pull origin main
+        git pull origin develop --ff-only
+        git pull origin main --ff-only
         git checkout develop
         git merge main
         git push
